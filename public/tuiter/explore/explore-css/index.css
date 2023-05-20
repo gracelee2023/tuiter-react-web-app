@@ -18,6 +18,10 @@
 
   .wd-main {
     position: relative;
+    margin: 10 0px; /* Add spacing on both sides of the main content */
+    border-radius: 30px;
+    margin-bottom: 5px;
+
   }
   
   .wd-main-image {
@@ -82,7 +86,7 @@
   
   .wd-left-sidebar {
     flex: 0 0 200px; /* Adjust the width as needed */
-    margin-right: 10px; /* Add spacing between the left sidebar and main content */
+    margin-right: 30px; /* Add spacing between the left sidebar and main content */
   }
   
   .wd-main-content {
@@ -92,12 +96,20 @@
   
   .wd-right-sidebar {
     flex: 0 0 200px; /* Adjust the width as needed */
-    margin-left: 10px; /* Add spacing between the main content and right sidebar */
+    margin-left: 50px; /* Add spacing between the main content and right sidebar */
   }
 
   .wd-active {
     font-weight: bold;
-    background-color: blue;
-    padding: 3px;
-    width: 110px;
+    background-color: lightblue;
+    padding: 0px;
+    width: 105px;
   }
+  
+  .ttr-navigation > li > a > i {
+    width: 20px;
+    text-align: center; }
+
+  .wd-gray-background{
+      background-color: #EEEEEE;
+    }
