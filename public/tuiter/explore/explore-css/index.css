@@ -1,0 +1,103 @@
+
+.wd-rounded-corners-all-around {
+    height: 40px;
+    border-radius: 20px;
+    width: 100%;
+    border-left: 0;
+  }
+  
+  .wd-search-area {
+    padding-left: 50px;
+  }
+  
+  .wd-search-glass {
+    position: absolute;
+    margin-left: 20px;
+    top: 15px;
+  }
+
+  .wd-main {
+    position: relative;
+  }
+  
+  .wd-main-image {
+    width: 100%
+  }
+  
+  .wd-overlay-text {
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    bottom: 0px;
+    left: 2px;
+  }
+  
+  .wd-post {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .wd-post-topic {
+    font-size: 13px;
+    color: rgb(110, 118, 125);
+    padding-bottom: 3px;
+    padding-top: 3px;
+  }
+  
+  .wd-author-handle {
+    display: inline-block;
+    font-weight: bold;
+  }
+  
+  
+  .wd-post-image {
+    object-fit: cover;
+    float: right;
+    padding-top: 5px;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+  }
+  
+
+  .wd-selected-tab {
+    position: relative;
+    font-weight: bold;
+  }
+  
+  .wd-selected-tab::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    height: 2px;
+    background-color: blue;
+  }
+  
+  .wd-table-layout {
+    display: flex;
+  }
+  
+  .wd-left-sidebar {
+    flex: 0 0 200px; /* Adjust the width as needed */
+    margin-right: 10px; /* Add spacing between the left sidebar and main content */
+  }
+  
+  .wd-main-content {
+    flex: 1; /* Expand to fill the remaining space */
+    margin: 0 10px; /* Add spacing on both sides of the main content */
+  }
+  
+  .wd-right-sidebar {
+    flex: 0 0 200px; /* Adjust the width as needed */
+    margin-left: 10px; /* Add spacing between the main content and right sidebar */
+  }
+
+  .wd-active {
+    font-weight: bold;
+    background-color: blue;
+    padding: 3px;
+    width: 110px;
+  }
