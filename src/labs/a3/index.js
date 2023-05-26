@@ -1,4 +1,8 @@
 import JavaScript from "./java-script";
+import Classes from "./classes";
+import Styles from "./styles";
+import ConditionalOutput from "./conditional-output";
+import ToDo from "./todo/todo-list";
 
 function Assignment3() {
   // 2.2.7 Working with Arrays part1
@@ -25,6 +29,17 @@ function Assignment3() {
     <div>
       <h2>Assignment 3</h2>
       <JavaScript />
+      <br />
+      <Classes />
+      <br />
+      <Styles />
+      <br />
+      <Styles />
+      <br />
+      <ConditionalOutput />
+      <br />
+      <ToDo />
+      <br />
     </div>
   );
 }
