@@ -23,7 +23,7 @@ import BookmarksScreen from "./bookmarks-screen/bookmarks-screen";
 import ProfileScreen from "./profile-screen/profile-screen";
 // WhoToFollowList is the index.js file in who-to-follow-list directory
 import WhoToFollowList from ".//who-to-follow-list";
-import WhoToFollowListItem from "./who-to-follow-list/who-to-follow-list-item";
+// import WhoToFollowListItem from "./who-to-follow-list/who-to-follow-list-item";
 
 function Tuiter() {
   return (
