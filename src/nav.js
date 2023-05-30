@@ -12,12 +12,13 @@ function Navigation() {
   ];
 
   return (
-    <div className="nav nav-tabs mb-2">
+    <div className="nav nav-pills mb-2">
       {/* Note that path in the "pathname === path" is without "", which means "pathname === "path"" is not correct
         Note that to={path}, not to= "path"!! */}
 
       {links.map(({ path, label }) => (
         <Link
+          key={path}
           className={`nav-link ${pathname === path ? "active" : ""}`}
           to={path}
         >
