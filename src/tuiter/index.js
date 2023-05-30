@@ -34,6 +34,7 @@ function Tuiter() {
           <NavigationSidebar />
         </div>
         <div className="col-7">
+          <h1>Tuiter</h1>
           <Routes>
             <Route path="/home" element={<HomeScreen />} />
             <Route path="/explore" element={<ExploreScreen />} />
