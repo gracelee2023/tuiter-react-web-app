@@ -7,6 +7,7 @@ function Navigation() {
   //   console.log(location.pathname);
   const links = [
     { path: "/labs/a3", label: "A3" },
+    { path: "/labs/a4", label: "A4" },
     { path: "/hello", label: "Hello" },
     { path: "/tuiter", label: "Tuiter" },
   ];

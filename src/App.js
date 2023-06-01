@@ -2,18 +2,24 @@
 // import './App.css';
 import Labs from "./labs";
 import HelloWorld from "./labs/a3/hello-world";
+import Assignment3 from "./labs/a3";
+import Assignment4 from "./labs/a4";
 import Tuiter from "./tuiter";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Navigate } from "react-router-dom";
+import Navigation from "./nav";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="container">
         {/* <h1>Hello World!</h1> */}
+        <Navigation />
         <Routes>
-          <Route path="/" element={<Navigate to="/labs" />} />
+          <Route path="/" element={<Navigate to="/labs/a3/" />} />
           <Route path="/labs/*" element={<Labs />} />
+          <Route path="/labs/a3" element={<Assignment3 />} />
+          <Route path="/labs/a4" element={<Assignment4 />} />
           <Route path="/hello" element={<HelloWorld />} />
           <Route path="/tuiter/*" element={<Tuiter />} />
 

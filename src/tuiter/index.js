@@ -15,7 +15,7 @@
 // export default Tuiter;
 
 import { Routes, Route } from "react-router";
-import Nav from "../nav";
+// import Nav from "../nav";
 import NavigationSidebar from "./navigation-sidebar";
 import HomeScreen from "./home-screen/home-screen";
 import ExploreScreen from "./explore-screen/index";
@@ -28,7 +28,7 @@ import WhoToFollowList from ".//who-to-follow-list";
 function Tuiter() {
   return (
     <div>
-      <Nav />
+      {/* <Nav /> */}
       <div className="row">
         <div className="col-2">
           <NavigationSidebar />

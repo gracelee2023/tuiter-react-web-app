@@ -1,4 +1,5 @@
 import Assignment3 from "./a3";
+import Assignment4 from "./a4";
 import Navigation from "../nav";
 
 function Labs(params) {
@@ -8,8 +9,8 @@ function Labs(params) {
       {/* <Link to="/labs/a3">A3</Link> |<Link to="/hello">Hello</Link> |
       <Link to="/tuiter">Tuiter</Link> */}
       <Navigation />
-
       <Assignment3 />
+      <Assignment4 />
     </div>
   );
 }

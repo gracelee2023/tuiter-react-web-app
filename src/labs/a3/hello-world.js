@@ -6,7 +6,7 @@ function HelloWorld() {
     <div>
       {/* <Link to="/labs/a3">A3</Link> |<Link to="/hello">Hello</Link> |
       <Link to="/tuiter">Tuiter</Link> */}
-      <Navigation />
+      {/* <Navigation /> */}
       <h1>Hello World!</h1>
     </div>
   );
