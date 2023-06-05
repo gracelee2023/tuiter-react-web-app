@@ -1,0 +1,22 @@
+.wd-user-image {
+    float: left;
+    margin-left: 10px;
+    width: 48px;
+    height: 48px;
+    border-radius: 30px;
+    object-fit: cover;
+  }
+  .icon-stack {
+    position: relative;
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+  }
+  
+  .icon-background,
+  .icon-foreground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: lightblue;
+  }

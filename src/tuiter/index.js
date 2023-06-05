@@ -24,31 +24,46 @@ import ProfileScreen from "./profile-screen/profile-screen";
 // WhoToFollowList is the index.js file in who-to-follow-list directory
 import WhoToFollowList from ".//who-to-follow-list";
 // import WhoToFollowListItem from "./who-to-follow-list/who-to-follow-list-item";
+// import the whoreducer
+import whoReducer from "./reducers/who-reducer";
+// import the new tuits reducer
+import tuitsReducer from "./reducers/tuits-reducer";
+// import configureStore
+import { configureStore } from "@reduxjs/toolkit";
+// import the Provider component
+import { Provider } from "react-redux";
+// configure the store
+// const store = configureStore({ reducer: { who: whoReducer } });
+const store = configureStore({
+  reducer: { who: whoReducer, tuits: tuitsReducer },
+});
 
 function Tuiter() {
   return (
-    <div>
-      {/* <Nav /> */}
-      <div className="row">
-        <div className="col-2">
-          <NavigationSidebar />
-        </div>
-        <div className="col-7">
-          <h1>Tuiter</h1>
-          <Routes>
-            <Route path="/home" element={<HomeScreen />} />
-            <Route path="/explore" element={<ExploreScreen />} />
-            <Route path="/bookmarks" element={<BookmarksScreen />} />
-            <Route path="/profile" element={<ProfileScreen />} />
-          </Routes>
-        </div>
-        <div className="col-3">
-          {/* <ul className="list-group">
+    <Provider store={store}>
+      <div>
+        {/* <Nav /> */}
+        <div className="row">
+          <div className="col-2">
+            <NavigationSidebar />
+          </div>
+          <div className="col-7">
+            {/* <h1>Tuiter</h1> */}
+            <Routes>
+              <Route path="/home" element={<HomeScreen />} />
+              <Route path="/explore" element={<ExploreScreen />} />
+              <Route path="/bookmarks" element={<BookmarksScreen />} />
+              <Route path="/profile" element={<ProfileScreen />} />
+            </Routes>
+          </div>
+          <div className="col-3">
+            <WhoToFollowList />
+            {/* <ul className="list-group">
             <li className="list-group-item">
               <h4>Who to follow</h4>
             </li>  ------ WhoToFollowList below already include the heading*/}
-          <WhoToFollowList />
-          {/* <WhoToFollowListItem />
+
+            {/* <WhoToFollowListItem />
             <WhoToFollowListItem
               who={{
                 userName: "Tesla",
@@ -63,10 +78,11 @@ function Tuiter() {
                 avatarIcon: "spaceX.jpeg",
               }}
             /> */}
-          {/* </ul> */}
+            {/* </ul> */}
+          </div>
         </div>
       </div>
-    </div>
+    </Provider>
   );
 }
 export default Tuiter;

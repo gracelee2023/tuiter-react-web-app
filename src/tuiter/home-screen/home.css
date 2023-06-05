@@ -1,0 +1,31 @@
+/* for fixing image dimension */
+.wd-post-img {
+    width: 87px;
+    border-radius: 14px;
+  }
+  
+  .wd-user-image {
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+  }
+  
+  .wd-rounded-16px {
+    border-radius: 16px !important;
+    border: 1px solid #282828;
+    background-color: black;
+  }
+  
+  .wd-rounded-bottom-16px {
+    border-bottom-left-radius: 16px !important;
+    border-bottom-right-radius: 16px !important;
+    border: 1px solid #282828;
+    background-color: black;
+  }
+  
+  .wd-rounded-top-16px {
+    border-top-left-radius: 16px !important;
+    border-top-right-radius: 16px !important;
+    border: 1px solid #282828;
+  
+  }
