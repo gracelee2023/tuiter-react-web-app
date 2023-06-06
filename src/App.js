@@ -1,5 +1,11 @@
 // import logo from "./logo.svg";
-// import './App.css';
+import "./App.css";
+// need to import bootstrap into this project entry file to make responsive layouts
+import "bootstrap/dist/css/bootstrap.min.css";
+// bootstrap.min.css will turn all the web pages into background-color black!!!
+// import "./vendors/bootstrap/bootstrap.min.css";
+// need to import fontawesome into this project entry file to in order to import icons for the navigation bar
+import "./vendors/fontawesome/css/all.min.css";
 import Labs from "./labs";
 import HelloWorld from "./labs/a3/hello-world";
 import Assignment3 from "./labs/a3";

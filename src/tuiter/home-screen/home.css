@@ -13,14 +13,14 @@
   .wd-rounded-16px {
     border-radius: 16px !important;
     border: 1px solid #282828;
-    background-color: black;
+    background-color: white;
   }
   
   .wd-rounded-bottom-16px {
     border-bottom-left-radius: 16px !important;
     border-bottom-right-radius: 16px !important;
     border: 1px solid #282828;
-    background-color: black;
+    background-color: white;
   }
   
   .wd-rounded-top-16px {

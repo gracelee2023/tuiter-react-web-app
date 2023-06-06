@@ -8,6 +8,9 @@ import {
 import { faRetweet, faUpload } from "@fortawesome/free-solid-svg-icons";
 // import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import "../home-screen/home.css";
+import { useDispatch } from "react-redux";
+import { deleteTuit } from "../reducers/tuits-reducer";
+
 const TuitItem = ({
   tuit = {
     avatarIcon: "/images/spaceX.jpeg",
@@ -22,19 +25,25 @@ const TuitItem = ({
     likes: 12345,
   },
 }) => {
+  const dispatch = useDispatch();
+  const deleteTuitHandler = (id) => {
+    dispatch(deleteTuit(id));
+  };
   return (
-    <li className="list-group-item">
-      <div className="row">
-        <div className="col-2">
+    <li className="list-group-item p-3">
+      <div className="row gx-3">
+        {/* Poster avatar */}
+        <div className="col-auto">
           <img
-            width={70}
-            className="wd-user-image"
+            width={50}
+            className="float-end rounded-circle"
             alt=""
             src={tuit.avatarIcon}
           />
         </div>
 
-        <div className="col-10">
+        {/* Tuit poster */}
+        <div className="col">
           {/* place the below content in another row */}
           <div class="row">
             {/* place the below content in another column */}
@@ -59,11 +68,22 @@ const TuitItem = ({
                 {tuit.handle} · {tuit.time}
               </span>
             </div>
-            <div class="col-auto">
-              <i class="fa-solid fa-ellipsis text-secondary"></i>
+
+            {/* Delete tuit button*/}
+            <div className="col-auto">
+              <button
+                type="button"
+                className="btn bg-transparent p-0"
+                onClick={() => deleteTuitHandler(tuit._id)}
+              >
+                <i className="fas fa-remove fa-1x"></i>
+              </button>
             </div>
-            <div>{tuit.title}</div>
           </div>
+
+          {/* Tuit message */}
+          <div className="mb-3">{tuit.title}</div>
+
           <div class="row text-secondary mt-3">
             <div class="col-3">
               <FontAwesomeIcon icon={faComment} className="me-2" />

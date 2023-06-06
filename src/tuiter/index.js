@@ -43,11 +43,16 @@ function Tuiter() {
     <Provider store={store}>
       <div>
         {/* <Nav /> */}
-        <div className="row">
-          <div className="col-2">
+        {/* < className="row mt-2">:In Bootstrap, mt-2 stands for "margin-top: 2". mt-2 is giving the div a top margin of approximately '0.5rem' or '8px'.  */}
+        <div className="row mt-2">
+          {/* The col-2 col-lg-1 col-xl-2 is also a set of class names from Bootstrap, used to specify the layout of an HTML element in a responsive grid system. */}
+          {/* col-2: This class sets the width of the <div> to occupy 2 out of 12 columns of the Bootstrap's grid system on all devices (by default, Bootstrap's grid system has 12 columns).
+          col-lg-1: This class changes the width of the <div> to occupy 1 out of 12 columns on large devices (screen widths equal to or greater than 992px in Bootstrap 4 and 5).
+          col-xl-2: This class changes the width of the <div> to occupy 2 out of 12 columns on extra large devices (screen widths equal to or greater than 1200px in Bootstrap 4 and 5). */}
+          <div className="col-2 col-lg-1 col-xl-2">
             <NavigationSidebar />
           </div>
-          <div className="col-7">
+          <div className="col-10 col-lg-7 col-xl-6">
             {/* <h1>Tuiter</h1> */}
             <Routes>
               <Route path="/home" element={<HomeScreen />} />
@@ -56,7 +61,7 @@ function Tuiter() {
               <Route path="/profile" element={<ProfileScreen />} />
             </Routes>
           </div>
-          <div className="col-3">
+          <div className="d-none d-lg-block col-lg-4 col-xl-4">
             <WhoToFollowList />
             {/* <ul className="list-group">
             <li className="list-group-item">
