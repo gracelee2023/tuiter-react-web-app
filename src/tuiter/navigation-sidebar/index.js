@@ -1,7 +1,9 @@
 import React from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const NavigationSidebar = () => {
+  const { currentUser } = useSelector((state) => state.user);
   return (
     <>
       <div className="list-group">
@@ -93,6 +95,24 @@ const NavigationSidebar = () => {
             Tweet
           </Link>
         </div>
+
+        {!currentUser && (
+          <Link className="list-group" to="/tuiter/login">
+            {" "}
+            Login{" "}
+          </Link>
+        )}
+        {!currentUser && (
+          <Link className="list-group" to="/tuiter/register">
+            Register
+          </Link>
+        )}
+        {currentUser && (
+          <Link className="list-group" to="/tuiter/profile">
+            {" "}
+            Profile{" "}
+          </Link>
+        )}
       </div>
     </>
   );

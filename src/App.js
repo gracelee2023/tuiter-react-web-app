@@ -14,6 +14,8 @@ import Tuiter from "./tuiter";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import Navigation from "./nav";
+// import Todo from "./todos";
+import { Provider } from "react-redux";
 
 function App() {
   return (
@@ -23,6 +25,7 @@ function App() {
         <Navigation />
         <Routes>
           <Route path="/" element={<Navigate to="/labs/a3/" />} />
+          {/* <Route path="/todos/*" element={<Todo />} /> */}
           <Route path="/labs/*" element={<Labs />} />
           <Route path="/labs/a3" element={<Assignment3 />} />
           <Route path="/labs/a4" element={<Assignment4 />} />
