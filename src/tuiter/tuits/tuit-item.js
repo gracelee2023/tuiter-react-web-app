@@ -1,109 +1,57 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCircleCheck,
-  faComment,
-  faHeart,
-} from "@fortawesome/free-regular-svg-icons";
-import { faRetweet, faUpload } from "@fortawesome/free-solid-svg-icons";
-// import { faCheck } from "@fortawesome/free-solid-svg-icons";
-import "../home-screen/home.css";
+import TuitStats from "./tuit-stats";
 import { useDispatch } from "react-redux";
-import { deleteTuit } from "../reducers/tuits-reducer";
+import { deleteTuitThunk } from "../../services/tuits-thunks";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleCheck } from "@fortawesome/free-regular-svg-icons";
+import "../home-screen/home.css";
 
-const TuitItem = ({
-  tuit = {
-    avatarIcon: "/images/spaceX.jpeg",
-    userName: "spaceX",
-    handle: "spacex",
-    time: "2h",
-    title:
-      "Tesla CyberTruck lands on Mars and picks up the Curiosity rover on its 6' bed",
-    liked: true,
-    replies: 123,
-    retuits: 432,
-    likes: 12345,
-  },
-}) => {
+const TuitItem = ({ tuit }) => {
   const dispatch = useDispatch();
   const deleteTuitHandler = (id) => {
-    dispatch(deleteTuit(id));
+    dispatch(deleteTuitThunk(id));
   };
   return (
-    <li className="list-group-item p-3">
-      <div className="row gx-3">
-        {/* Poster avatar */}
-        <div className="col-auto">
+    <li className="list-group-item border-secondary">
+      <div className="row">
+        <div className="col-1">
           <img
-            width={50}
-            className="float-end rounded-circle"
             alt=""
-            src={tuit.avatarIcon}
+            className="float-start rounded-circle"
+            src={`/images/${tuit.image}`}
+            width="40px"
+            height="40px"
           />
         </div>
-
-        {/* Tuit poster */}
-        <div className="col">
-          {/* place the below content in another row */}
-          <div class="row">
-            {/* place the below content in another column */}
-            <div class="col">
-              <span className="fw-bold">{tuit.userName}</span>
-              <span className="fa-stack fa-2xs">
-                <FontAwesomeIcon
-                  icon={faCircleCheck}
-                  size="2x"
-                  className="icon-background"
-                  style={{ color: "blue" }}
-                />
-                {/* <FontAwesomeIcon
-                  icon={faCheck}
-                  inverse
-                  transform="shrink-6"
-                  className="icon-foreground"
-                  style={{ color: "white" }}
-                /> */}
-              </span>
-              <span className="text-secondary">
-                {tuit.handle} · {tuit.time}
-              </span>
-            </div>
-
-            {/* Delete tuit button*/}
-            <div className="col-auto">
-              <button
-                type="button"
-                className="btn bg-transparent p-0"
-                onClick={() => deleteTuitHandler(tuit._id)}
-              >
-                <i className="fas fa-remove fa-1x"></i>
-              </button>
-            </div>
-          </div>
-
-          {/* Tuit message */}
-          <div className="mb-3">{tuit.title}</div>
-
-          <div class="row text-secondary mt-3">
-            <div class="col-3">
-              <FontAwesomeIcon icon={faComment} className="me-2" />
-              {tuit.replies}
-            </div>
-            <div class="col-3">
-              <FontAwesomeIcon icon={faRetweet} className="me-2" />
-              {tuit.retuits}
-            </div>
-            <div class="col-3">
+        <div className="col-11">
+          <div className="float-start fw-bold"> {tuit.topic} &nbsp;</div>
+          <div className="float-start">
+            <i className="fa fa-sm">
               <FontAwesomeIcon
-                icon={faHeart}
-                style={{ color: "red" }}
-                className="me-2"
+                icon={faCircleCheck}
+                size="x"
+                className="icon-background"
+                style={{ color: "blue" }}
               />
-              {tuit.likes}
-            </div>
-            <div class="col-3">
-              <FontAwesomeIcon icon={faUpload} />
-            </div>
+            </i>{" "}
+            &nbsp;
+          </div>
+          <div className="float-start">
+            {" "}
+            {tuit.handle} • {tuit.time}{" "}
+          </div>
+          <div className="float-end">
+            <i
+              className="fas fa-x float-end"
+              onClick={() => deleteTuitHandler(tuit._id)}
+            ></i>
+          </div>
+          <br />
+          <div className="mb-2" style={{ fontSize: "15px" }}>
+            {tuit.tuit}
+          </div>
+          <div className="col-12 mt-2">
+            <TuitStats tuit={tuit} />
           </div>
         </div>
       </div>

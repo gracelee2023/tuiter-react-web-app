@@ -20,7 +20,7 @@ const NavigationSidebar = () => {
           end
           className="list-group-item list-group-item-action"
         >
-          <i className="fa-solid fa-house-chimney"></i>
+          <i className="fa-solid fa-home"></i>
           <span className="d-none d-xl-inline ps-1">Home</span>
         </NavLink>
         {/* Explore */}
