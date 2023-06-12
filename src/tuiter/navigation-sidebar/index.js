@@ -86,6 +86,8 @@ const NavigationSidebar = () => {
             <i className="fa-solid fa-ellipsis fa-stack-1x fa-inverse"></i>
           </span>
           <span className="d-none d-xl-inline">More</span>
+
+          {/* tweet button */}
         </NavLink>
         <div className="d-grid mt-2">
           <Link
