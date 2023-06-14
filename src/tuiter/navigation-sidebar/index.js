@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 
 const NavigationSidebar = () => {
   const { currentUser } = useSelector((state) => state.user);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/tuiter/home";
   return (
     <>
       <div className="list-group">
@@ -98,13 +100,13 @@ const NavigationSidebar = () => {
           </Link>
         </div>
 
-        {!currentUser && (
+        {isHomePage && !currentUser && (
           <Link className="list-group" to="/tuiter/login">
             {" "}
             Login{" "}
           </Link>
         )}
-        {!currentUser && (
+        {isHomePage && !currentUser && (
           <Link className="list-group" to="/tuiter/register">
             Register
           </Link>

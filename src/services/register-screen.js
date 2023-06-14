@@ -9,10 +9,15 @@ function RegisterScreen() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const handleRegister = async () => {
     try {
-      await dispatch(registerThunk({ username, password }));
-      navigate("/tuiter/login");
+      const data = {
+        username: username,
+        password: password,
+      };
+      await dispatch(registerThunk({ data }));
+      navigate("/tuiter/profile");
     } catch (e) {
       alert(e);
     }
@@ -39,7 +44,7 @@ function RegisterScreen() {
         />
       </div>
       <button className="btn btn-primary mt-2" onClick={handleRegister}>
-        Login
+        Register
       </button>
     </div>
   );
