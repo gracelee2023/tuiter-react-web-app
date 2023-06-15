@@ -7,6 +7,8 @@ import { registerThunk } from "./auth-thunks";
 function RegisterScreen() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -15,6 +17,8 @@ function RegisterScreen() {
       const data = {
         username: username,
         password: password,
+        firstName: firstName,
+        lastName: lastName,
       };
       await dispatch(registerThunk({ data }));
       navigate("/tuiter/profile");
@@ -41,6 +45,24 @@ function RegisterScreen() {
           type="password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
+        />
+      </div>
+      <div className="mt-2">
+        <label>First Name</label>
+        <input
+          className="form-control"
+          type="text"
+          value={firstName}
+          onChange={(event) => setFirstName(event.target.value)}
+        />
+      </div>
+      <div className="mt-2">
+        <label>Last Name</label>
+        <input
+          className="form-control"
+          type="text"
+          value={lastName}
+          onChange={(event) => setLastName(event.target.value)}
         />
       </div>
       <button className="btn btn-primary mt-2" onClick={handleRegister}>
