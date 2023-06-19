@@ -12,20 +12,20 @@ const authSlice = createSlice({
   initialState: { currentUser: null },
   reducers: {},
   extraReducers: {
-    [loginThunk.fulfilled]: (state, { payload }) => {
-      state.currentUser = payload;
+    [loginThunk.fulfilled]: (state, action) => {
+      state.currentUser = action.payload;
     },
-    [logoutThunk.fulfilled]: (state) => {
+    [logoutThunk.fulfilled]: (state, action) => {
       state.currentUser = null;
     },
-    [profileThunk.fulfilled]: (state, { payload }) => {
-      state.currentUser = payload;
+    [profileThunk.fulfilled]: (state, action) => {
+      state.currentUser = action.payload;
     },
-    [updateUserThunk.fulfilled]: (state, { payload }) => {
-      state.currentUser = payload;
+    [updateUserThunk.fulfilled]: (state, action) => {
+      state.currentUser = action.payload;
     },
-    [registerThunk.fulfilled]: (state, { payload }) => {
-      state.currentUser = payload;
+    [registerThunk.fulfilled]: (state, action) => {
+      state.currentUser = action.payload;
     },
   },
 });
