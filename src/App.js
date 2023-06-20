@@ -16,10 +16,20 @@ import { Navigate } from "react-router-dom";
 import Navigation from "./nav";
 // import Todo from "./todos";
 import { Provider } from "react-redux";
+// import { store } from "./tuiter/store";
+// import the authentication context
+import AuthContext from "./services/auth-context";
+import ProtectedRoute from "./services/protected-route";
+import LoginScreen, { qwe, asd } from "./services/login-screen.js";
+import RegisterScreen from "./services/register-screen";
+import ProfileScreen from "./services//profile-screen";
+import Users from "./users";
 
 function App() {
   return (
+    // <Provider store={store}>
     <BrowserRouter>
+      {/* <AuthContext> */}
       <div className="container">
         {/* <h1>Hello World!</h1> */}
         <Navigation />
@@ -37,7 +47,9 @@ function App() {
           <Tuiter /> */}
         </Routes>
       </div>
+      {/* </AuthContext> */}
     </BrowserRouter>
+    // </Provider>
 
     // <div className="App">
     //   <header className="App-header">

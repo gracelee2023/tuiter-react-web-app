@@ -3,6 +3,8 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const NavigationSidebar = () => {
+  const state = useSelector((state) => state);
+  console.log(state);
   const { currentUser } = useSelector((state) => state.user);
   const location = useLocation();
   const isHomePage = location.pathname === "/tuiter/home";
