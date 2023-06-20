@@ -7,6 +7,14 @@ import {
   registerThunk,
 } from "./auth-thunks";
 
+const initialState = {
+  users: [],
+  newUser: {},
+  error: null,
+  loading: false,
+  currentUser: null,
+};
+
 const authSlice = createSlice({
   name: "auth",
   initialState: { currentUser: null },
@@ -14,18 +22,28 @@ const authSlice = createSlice({
   extraReducers: {
     [loginThunk.fulfilled]: (state, { payload }) => {
       state.currentUser = payload;
+      state.loading = false;
+      state.error = null;
     },
     [logoutThunk.fulfilled]: (state) => {
       state.currentUser = null;
+      state.loading = false;
+      state.error = null;
     },
     [profileThunk.fulfilled]: (state, { payload }) => {
       state.currentUser = payload;
+      state.loading = false;
+      state.error = null;
     },
     [updateUserThunk.fulfilled]: (state, { payload }) => {
       state.currentUser = payload;
+      state.loading = false;
+      state.error = null;
     },
     [registerThunk.fulfilled]: (state, { payload }) => {
       state.currentUser = payload;
+      state.loading = false;
+      state.error = null;
     },
   },
 });

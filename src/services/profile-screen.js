@@ -35,7 +35,6 @@ function ProfileScreen() {
         navigate("/tuiter/login");
       }
     };
-    // dispatch(profileThunk());
     fetchProfile();
   }, []);
   console.log(currentUser, profile);
