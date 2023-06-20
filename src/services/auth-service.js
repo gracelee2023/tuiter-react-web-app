@@ -1,7 +1,7 @@
 import axios from "axios";
 // const SERVER = process.env.REACT_APP_SERVER_API_URL;
-const SERVER = "https://tuiter-node-server-app-23su.herokuapp.com";
-const USERS_URL = `${SERVER}/users`;
+const SERVER = "https://tuiter-node-server-app-23.onrender.com";
+const USERS_URL = `${SERVER}/api/users`;
 
 const api = axios.create({ withCredentials: true });
 
