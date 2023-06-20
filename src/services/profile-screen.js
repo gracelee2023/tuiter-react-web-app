@@ -9,64 +9,87 @@ function ProfileScreen() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const save = () => {
-    dispatch(updateUserThunk(profile));
+  // logout handle
+  const handleLogout = async () => {
+    dispatch(logoutThunk());
+    // once logout, redirect to the login page
+    navigate("/tuiter/login");
+  };
+
+  // update handle
+  const handleUpdate = async () => {
+    try {
+      await dispatch(updateUserThunk(profile));
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
-    async function fetchProfile() {
-      const { payload } = await dispatch(profileThunk());
-      setProfile({ payload });
-    }
+    const fetchProfile = async () => {
+      try {
+        const { payload } = await dispatch(profileThunk());
+        setProfile(payload);
+      } catch (error) {
+        console.error(error);
+        navigate("/tuiter/login");
+      }
+    };
+    // dispatch(profileThunk());
     fetchProfile();
   }, []);
   console.log(currentUser, profile);
+
   return (
     <div>
       <h1>Profile Screen</h1>
-      {currentUser && profile && (
+      {profile && (
         <div>
-          <div>
-            <label>First Name</label>
-            <input
-              type="text"
-              value={profile.firstName}
-              onChange={(event) => {
-                const newProfile = {
-                  ...profile,
-                  firstName: event.target.value,
-                };
-                setProfile(newProfile);
-              }}
-            />
-          </div>
-          <div>
-            <label>Last Name</label>
-            <input
-              type="text"
-              value={profile.lastName}
-              onChange={(event) => {
-                const newProfile = {
-                  ...profile,
-                  lastName: event.target.value,
-                };
-                setProfile(newProfile);
-              }}
-            />
-          </div>
+          <label>Username</label>
+          <input className="form-control" value={profile.username} readOnly />
+          <label>First Name</label>
+          <input
+            className="form-control"
+            type="text"
+            value={profile.firstName}
+            onChange={(event) => {
+              const newProfile = {
+                ...profile,
+                firstName: event.target.value,
+              };
+              setProfile(newProfile);
+            }}
+          />
+          <label>Last Name</label>
+          <input
+            className="form-control"
+            type="text"
+            value={profile.lastName}
+            onChange={(event) => {
+              const newProfile = {
+                ...profile,
+                lastName: event.target.value,
+              };
+              setProfile(newProfile);
+            }}
+          />
+          <label>Password</label>
+          <input
+            className="form-control"
+            value={profile.password}
+            type="password"
+          />
         </div>
       )}
-      <button
-        onClick={() => {
-          dispatch(logoutThunk());
-          navigate("/tuiter/login");
-        }}
-      >
-        {" "}
+      <button onClick={handleUpdate} className="btn btn-primary">
+        update
+      </button>
+      <button onClick={handleLogout} className="btn btn-danger">
         Logout
       </button>
-      <button onClick={save}>Save </button>
+      <pre>{JSON.stringify(currentUser, null, 2)}</pre>
     </div>
   );
 }
+
 export default ProfileScreen;

@@ -5,21 +5,26 @@ import { registerThunk } from "./auth-thunks";
 
 // implement the register screen
 function RegisterScreen() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [user, setUser] = useState({});
+  // const [username, setUsername] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [firstName, setFirstName] = useState("");
+  // const [lastName, setLastName] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleRegister = async () => {
     try {
-      const data = {
-        username: username,
-        password: password,
-      };
-      await dispatch(registerThunk({ data }));
+      // const data = {
+      //   username: username,
+      //   password: password,
+      //   firstName: firstName,
+      //   lastName: lastName,
+      // };
+      await dispatch(registerThunk(user));
       navigate("/tuiter/profile");
     } catch (e) {
-      alert(e);
+      console.error(e);
     }
   };
   return (
@@ -30,8 +35,8 @@ function RegisterScreen() {
         <input
           className="form-control"
           type="text"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
+          value={user.username}
+          onChange={(e) => setUser({ ...user, username: e.target.value })}
         />
       </div>
       <div className="mt-2">
@@ -39,8 +44,26 @@ function RegisterScreen() {
         <input
           className="form-control"
           type="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
+          value={user.password}
+          onChange={(e) => setUser({ ...user, password: e.target.value })}
+        />
+      </div>
+      <div className="mt-2">
+        <label>First Name</label>
+        <input
+          className="form-control"
+          type="text"
+          value={user.firstName}
+          onChange={(e) => setUser({ ...user, firstName: e.target.value })}
+        />
+      </div>
+      <div className="mt-2">
+        <label>Last Name</label>
+        <input
+          className="form-control"
+          type="password"
+          value={user.lastName}
+          onChange={(e) => setUser({ ...user, lastName: e.target.value })}
         />
       </div>
       <button className="btn btn-primary mt-2" onClick={handleRegister}>
