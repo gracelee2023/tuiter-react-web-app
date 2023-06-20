@@ -5,7 +5,7 @@ import axios from "axios";
 // const TUITS_API = `${API_BASE}/tuits`;
 
 // use the deployed server at heroku instead
-const SERVER = "https://tuiter-node-server-app-23su.herokuapp.com/";
+const SERVER = "https://tuiter-node-server-app-23su.herokuapp.com/api/tuits";
 const TUITS_API = `${SERVER}/api/tuits`;
 
 export const createTuit = async (tuit) => {
