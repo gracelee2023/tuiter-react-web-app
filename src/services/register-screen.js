@@ -61,7 +61,7 @@ function RegisterScreen() {
         <label>Last Name</label>
         <input
           className="form-control"
-          type="password"
+          type="text"
           value={user.lastName}
           onChange={(e) => setUser({ ...user, lastName: e.target.value })}
         />

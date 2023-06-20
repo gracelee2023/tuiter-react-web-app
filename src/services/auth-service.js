@@ -1,7 +1,7 @@
 import axios from "axios";
-// const SERVER = process.env.REACT_APP_SERVER_API_URL;
-const SERVER = "https://tuiter-node-server-app-23su.herokuapp.com/";
-const USERS_URL = `${SERVER}/api/users`;
+const SERVER = process.env.REACT_APP_SERVER_API_URL;
+// const SERVER = "https://tuiter-node-server-app-23su.herokuapp.com/";
+const USERS_URL = `${SERVER}/users`;
 
 const api = axios.create({ withCredentials: true });
 
@@ -27,13 +27,18 @@ export const updateUser = async (user) => {
   return response.data;
 };
 
-export const register = async ({ username, password }) => {
-  const response = await api.post(`${USERS_URL}/register`, {
-    username,
-    password,
-  });
-  const user = response.data;
-  return user;
+// export const register = async ({ username, password }) => {
+//   const response = await api.post(`${USERS_URL}/register`, {
+//     username,
+//     password,
+//   });
+//   const user = response.data;
+//   return user;
+// };
+
+export const register = async (user) => {
+  const response = await axios.post(`${USERS_URL}/register`, user);
+  return response.data;
 };
 
 export const getUsers = async () => {
