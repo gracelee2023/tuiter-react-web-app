@@ -10,7 +10,7 @@ function ProfileScreen() {
   const navigate = useNavigate();
 
   // logout handle
-  const handleLogout = async () => {
+  const handleLogout = () => {
     dispatch(logoutThunk());
     // once logout, redirect to the login page
     navigate("/tuiter/login");
@@ -43,7 +43,7 @@ function ProfileScreen() {
     <div>
       <h1>Profile Screen</h1>
       {profile && (
-        <div>
+        <>
           <label>Username</label>
           <input className="form-control" value={profile.username} readOnly />
           <label>First Name</label>
@@ -78,7 +78,7 @@ function ProfileScreen() {
             value={profile.password}
             type="password"
           />
-        </div>
+        </>
       )}
       <button onClick={handleUpdate} className="btn btn-primary">
         update

@@ -30,42 +30,35 @@ function RegisterScreen() {
   return (
     <div>
       <h1>Register Screen</h1>
-      <div className="mt-2">
-        <label>Username</label>
-        <input
-          className="form-control"
-          type="text"
-          value={user.username}
-          onChange={(e) => setUser({ ...user, username: e.target.value })}
-        />
-      </div>
-      <div className="mt-2">
-        <label>Password</label>
-        <input
-          className="form-control"
-          type="password"
-          value={user.password}
-          onChange={(e) => setUser({ ...user, password: e.target.value })}
-        />
-      </div>
-      <div className="mt-2">
-        <label>First Name</label>
-        <input
-          className="form-control"
-          type="text"
-          value={user.firstName}
-          onChange={(e) => setUser({ ...user, firstName: e.target.value })}
-        />
-      </div>
-      <div className="mt-2">
-        <label>Last Name</label>
-        <input
-          className="form-control"
-          type="text"
-          value={user.lastName}
-          onChange={(e) => setUser({ ...user, lastName: e.target.value })}
-        />
-      </div>
+
+      <input
+        className="form-control"
+        type="text"
+        value={user.username}
+        onChange={(e) => setUser({ ...user, username: e.target.value })}
+      />
+
+      <input
+        className="form-control"
+        type="password"
+        value={user.password}
+        onChange={(e) => setUser({ ...user, password: e.target.value })}
+      />
+
+      <input
+        className="form-control"
+        type="text"
+        value={user.firstName}
+        onChange={(e) => setUser({ ...user, firstName: e.target.value })}
+      />
+
+      <input
+        className="form-control"
+        type="text"
+        value={user.lastName}
+        onChange={(e) => setUser({ ...user, lastName: e.target.value })}
+      />
+
       <button className="btn btn-primary mt-2" onClick={handleRegister}>
         Register
       </button>
