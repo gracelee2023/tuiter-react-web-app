@@ -4,8 +4,6 @@ import { useNavigate } from "react-router";
 import { profileThunk, logoutThunk, updateUserThunk } from "./auth-thunks";
 
 function ProfileScreen() {
-  const { currentUser } = useSelector((state) => state.user);
-  const [profile, setProfile] = useState(currentUser);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -25,10 +23,15 @@ function ProfileScreen() {
     }
   };
 
+  const { currentUser } = useSelector((state) => state.user);
+  const [profile, setProfile] = useState(currentUser);
+
   useEffect(() => {
     const fetchProfile = async () => {
       try {
+        console.log(currentUser);
         const { payload } = await dispatch(profileThunk());
+        console.log(payload.data);
         setProfile(payload);
       } catch (error) {
         console.error(error);
