@@ -57,3 +57,11 @@ export const registerThunk = createAsyncThunk(
     return currentUser;
   }
 );
+
+export const createUserThunk = createAsyncThunk(
+  "users/createUser",
+  async (user) => {
+    const newUser = await authService.createUser(user);
+    return newUser;
+  }
+);

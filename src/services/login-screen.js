@@ -7,6 +7,7 @@ const LoginScreen = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  // the below codes provided by professor also works!!
   // const handleLogin = async () => {
   //   try {
   //     await dispatch(loginThunk(user));

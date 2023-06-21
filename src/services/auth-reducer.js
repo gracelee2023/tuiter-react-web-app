@@ -6,6 +6,7 @@ import {
   getProfileThunk,
   updateUserThunk,
   registerThunk,
+  createUserThunk,
 } from "./auth-thunks";
 
 const initialState = {
@@ -29,6 +30,13 @@ const usersSlice = createSlice({
   // instead of in index.js doing setUsers, updating a local state, do that in reducer
 
   extraReducers: {
+    // create user thunk
+    [createUserThunk.fulfilled]: (state, action) => {
+      state.newUser = action.payload;
+      state.error = null;
+      state.loading = false;
+    },
+
     // profile thunk
     [getProfileThunk.fulfilled]: (state, action) => {
       state.currentUser = action.payload;

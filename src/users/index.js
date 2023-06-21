@@ -36,6 +36,7 @@ function Users() {
     setUsers([...users, user]);
     setNewUser({});
   };
+
   useEffect(() => {
     const fetchUsers = async () => {
       const users = await getUsers();
@@ -43,6 +44,7 @@ function Users() {
     };
     fetchUsers();
   }, []);
+
   return (
     <div>
       <h1>Users</h1>
