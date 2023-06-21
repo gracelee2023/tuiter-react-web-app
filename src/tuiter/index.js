@@ -37,6 +37,7 @@ import ProfileScreen from "../services/profile-screen";
 import LoginScreen from "../services/login-screen";
 import RegisterScreen from "../services/register-screen";
 import authReducer from "../services/auth-reducer";
+import ProtectedRoute from "../services/protected-route";
 
 // configure the store
 // const store = configureStore({ reducer: { who: whoReducer } });

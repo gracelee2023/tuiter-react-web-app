@@ -6,14 +6,18 @@ const LoginScreen = () => {
   const [user, setUser] = useState({});
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const handleLogin = async () => {
+
+  const handleLogin = () => {
     try {
-      await dispatch(loginThunk(user));
-      navigate("/tuiter/profile");
+      dispatch(loginThunk(user));
+      setTimeout(() => {
+        navigate("/tuiter/profile");
+      }, 2000);
     } catch (error) {
       console.error(error);
     }
   };
+
   return (
     <div>
       <h1>Login Screen</h1>

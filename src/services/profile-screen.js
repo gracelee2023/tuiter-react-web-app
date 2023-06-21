@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
-import { profileThunk, logoutThunk, updateUserThunk } from "./auth-thunks";
+import { getProfileThunk, logoutThunk, updateUserThunk } from "./auth-thunks";
 
 function ProfileScreen() {
   const dispatch = useDispatch();
@@ -28,19 +28,12 @@ function ProfileScreen() {
 
   useEffect(() => {
     const fetchProfile = async () => {
-      try {
-        console.log(currentUser);
-        const { payload } = await dispatch(profileThunk());
-        console.log(payload.data);
-        setProfile(payload);
-      } catch (error) {
-        console.error(error);
-        navigate("/tuiter/login");
-      }
+      console.log(currentUser);
+      const { payload } = await dispatch(getProfileThunk());
+      setProfile(payload);
     };
     fetchProfile();
   }, []);
-  console.log(currentUser, profile);
 
   return (
     <div>
@@ -48,7 +41,11 @@ function ProfileScreen() {
       {profile && (
         <>
           <label>Username</label>
-          <input className="form-control" value={profile.username} readOnly />
+          <input
+            className="form-control"
+            value={profile.username || ""}
+            readOnly
+          />
           <label>First Name</label>
           <input
             className="form-control"
@@ -66,7 +63,7 @@ function ProfileScreen() {
           <input
             className="form-control"
             type="text"
-            value={profile.lastName}
+            value={profile.lastName || ""}
             onChange={(event) => {
               const newProfile = {
                 ...profile,

@@ -30,7 +30,7 @@ function RegisterScreen() {
   return (
     <div>
       <h1>Register Screen</h1>
-
+      <label>First Name</label>
       <input
         className="form-control"
         type="text"
@@ -38,6 +38,7 @@ function RegisterScreen() {
         onChange={(e) => setUser({ ...user, username: e.target.value })}
       />
 
+      <label>Password</label>
       <input
         className="form-control"
         type="password"
@@ -45,6 +46,7 @@ function RegisterScreen() {
         onChange={(e) => setUser({ ...user, password: e.target.value })}
       />
 
+      <label>First Name</label>
       <input
         className="form-control"
         type="text"
@@ -52,6 +54,7 @@ function RegisterScreen() {
         onChange={(e) => setUser({ ...user, firstName: e.target.value })}
       />
 
+      <label>Last Name</label>
       <input
         className="form-control"
         type="text"
