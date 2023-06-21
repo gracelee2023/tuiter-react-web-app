@@ -42,3 +42,5 @@ const LoginScreen = () => {
   );
 };
 export default LoginScreen;
+export const qwe = 123;
+export const asd = 456;

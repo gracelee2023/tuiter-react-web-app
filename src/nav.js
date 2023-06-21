@@ -10,6 +10,7 @@ function Navigation() {
     { path: "/labs/a4", label: "A4" },
     { path: "/hello", label: "Hello" },
     { path: "/tuiter", label: "Tuiter" },
+    { path: "/users", label: "Users" },
   ];
 
   return (

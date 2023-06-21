@@ -16,6 +16,7 @@ import { Navigate } from "react-router-dom";
 import Navigation from "./nav";
 // import Todo from "./todos";
 import { Provider } from "react-redux";
+import { store } from "./tuiter/store";
 // import { store } from "./tuiter/store";
 // import the authentication context
 import AuthContext from "./services/auth-context";
@@ -25,31 +26,52 @@ import RegisterScreen from "./services/register-screen";
 import ProfileScreen from "./services//profile-screen";
 import Users from "./users";
 
-function App() {
+function App({ wer, ert, rt }) {
   return (
-    // <Provider store={store}>
-    <BrowserRouter>
-      {/* <AuthContext> */}
-      <div className="container">
-        {/* <h1>Hello World!</h1> */}
-        <Navigation />
-        <Routes>
-          <Route path="/" element={<Navigate to="/labs/a3/" />} />
-          {/* <Route path="/todos/*" element={<Todo />} /> */}
-          <Route path="/labs/*" element={<Labs />} />
-          <Route path="/labs/a3" element={<Assignment3 />} />
-          <Route path="/labs/a4" element={<Assignment4 />} />
-          <Route path="/hello" element={<HelloWorld />} />
-          <Route path="/tuiter/*" element={<Tuiter />} />
+    <Provider store={store}>
+      <BrowserRouter>
+        {/* <AuthContext> */}
+        <div className="container">
+          {/* <h1>Hello World!</h1> */}
+          <Navigation />
+          <Routes>
+            <Route
+              path="/users/*"
+              element={
+                <div className="row">
+                  <div className="col-12">
+                    <Users />
+                  </div>
+                  <div className="col-6">{/* <UserListRedux /> */}</div>
+                </div>
+              }
+            />
+            <Route path="/login" element={<LoginScreen />} />
+            <Route path="/register" element={<RegisterScreen />} />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute>
+                  <ProfileScreen />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="/" element={<Navigate to="/labs/a3/" />} />
+            {/* <Route path="/todos/*" element={<Todo />} /> */}
+            <Route path="/labs/*" element={<Labs />} />
+            <Route path="/labs/a3" element={<Assignment3 />} />
+            <Route path="/labs/a4" element={<Assignment4 />} />
+            <Route path="/hello" element={<HelloWorld />} />
+            <Route path="/tuiter/*" element={<Tuiter />} />
 
-          {/* <HelloWorld />
+            {/* <HelloWorld />
           <Labs />
           <Tuiter /> */}
-        </Routes>
-      </div>
-      {/* </AuthContext> */}
-    </BrowserRouter>
-    // </Provider>
+          </Routes>
+        </div>
+        {/* </AuthContext> */}
+      </BrowserRouter>
+    </Provider>
 
     // <div className="App">
     //   <header className="App-header">
