@@ -7,6 +7,16 @@ const LoginScreen = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  // const handleLogin = async () => {
+  //   try {
+  //     await dispatch(loginThunk(user));
+  //     // if login successfully, then redirect to the profile page
+  //     navigate("/tuiter/profile");
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
   const handleLogin = () => {
     try {
       dispatch(loginThunk(user));
